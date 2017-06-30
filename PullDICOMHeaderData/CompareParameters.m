@@ -40,7 +40,9 @@ for i = 1:length(directories)
     j=j+1;
 end
 
-text = ['Folder' directories'; text];
+directoriesTmp = cell(1,size(text,2)-1);
+directoriesTmp((end-length(directories)+1):end) = directories;
+text = ['Folder' directoriesTmp; text];
 
 % place them in the excel spreadsheet
 xlswrite(excelDirectory,text,sheet);

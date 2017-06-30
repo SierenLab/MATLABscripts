@@ -27,9 +27,7 @@ for i = 1:length(names)
     try
         % check and see if looking for the patient name
         if strcmp(names{i},'PatientName')
-            family = structure.(names{i}).FamilyName;
-            given = structure.(names{i}).GivenName;
-            parameters{i,2} = strcat(family,',',given);
+            parameters{i,2} = structure.(names{i}).FamilyName;
         elseif strcmp(names{i},'AcquisitionMatrix') || strcmp(names{i},'PixelSpacing')
             parameters{i,2} = mat2str(structure.(names{i}));
         elseif strcmp(names{i},'StudyTime')
